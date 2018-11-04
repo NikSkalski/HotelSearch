@@ -6,7 +6,7 @@ using namespace std;
 class Hotel
 {
 public:
-	Hotel(string HotelName, string City, int price) {
+	Hotel(string HotelName, string City,unsigned int price) {
 		this->HotelName = HotelName;
 		this->City = City;
 		this->price = price;
@@ -37,7 +37,7 @@ public:
 	}
 private:
 	string HotelName, City;
-	int price;
+	unsigned int price;
 
 };
 
