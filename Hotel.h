@@ -1,18 +1,16 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
+
 using namespace std;
 class Hotel
 {
 public:
-	Hotel(string HotelName, string City,unsigned int price) {
+	Hotel(string HotelName, string City, unsigned int price) {
 		this->HotelName = HotelName;
 		this->City = City;
 		this->price = price;
 	}
-	~Hotel();
-	Hotel();
+	~Hotel() {};
+	Hotel() {};
 
 
 
@@ -36,8 +34,11 @@ public:
 		}
 	}
 private:
-	string HotelName, City;
+	string HotelName, City; //City nie usunalem ale bedzie zbêdne w sumie
 	unsigned int price;
 
 };
+
+
+
 

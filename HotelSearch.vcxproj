@@ -152,10 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Hotel.h" />
+    <ClInclude Include="Files.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Hotel.cpp" />
+    <ClCompile Include="Files.cpp" />
     <ClCompile Include="HotelSearch.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
