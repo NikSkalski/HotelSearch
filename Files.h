@@ -4,8 +4,9 @@
 #include <map>
 #include <fstream>
 #include <assert.h>
+using namespace std;
 void saveHotelList(std::map<std::string, std::vector<Hotel>>& list, std::string name);
-
+void PrintEnd(Hotel TheOne, Klient klient, std::string name);
 void saveHotelList(std::map<std::string, std::vector<Hotel>>& list, std::string name) {
 
 	ofstream stream;
@@ -23,3 +24,10 @@ void saveHotelList(std::map<std::string, std::vector<Hotel>>& list, std::string 
 //void loadHotelList(vector<Hotel>& list, std::string name);
 //void insertInList(vector<Hotel>& list, std::string name);
 
+void PrintEnd(Hotel *TheOne, Klient *klient, std::string name) {
+	ofstream stream;
+	stream.open(name, ios::out || ios::trunc);
+	assert(stream.is_open());
+	stream << "\t" << &TheOne->getName << "\t" << &TheOne->GetCity << "\t" << &klient->GetName << "  " << &klient->GetSurename << endl;
+	stream.close();
+}
