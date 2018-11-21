@@ -1,10 +1,13 @@
 New York:
 	WaterGates	220
-	Hilton	250
 END New York
 Paris:
-	Four Seasons	100
+	WaterGates	220
+	Hilton	250
 END Paris
 Philadelphia:
+	Four Seasons	100
 	Hyatt	200
+	WaterGates	220
+	Hilton	250
 END Philadelphia

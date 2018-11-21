@@ -1,17 +1,18 @@
 #pragma once
-#include "Klient.h";
+#include "Klient.h"
+#include <iostream>
 using namespace std;
 class Hotel
 {
 public:
-	Hotel(string HotelName, string City, unsigned int price) {
+	Hotel(string HotelName,  unsigned int price) {
 		this->HotelName = HotelName;
-		this->City = City;
+		//this->City = City;
 		this->price = price;
 	}
 	~Hotel() {};
 	Hotel() {};
-	vector <Hotel> MatchedHotels;
+	//vector <Hotel> MatchedHotels;
 	int k;
 
 	int Cost(int days) {
@@ -27,6 +28,7 @@ public:
 		cout << "Name: " << HotelName << " City: " << City << endl;
 	}
 	Hotel HotelFinder(vector <Hotel> ListOfHotels, string Place) {
+		vector <Hotel> MatchedHotels;
 		for (int i = 0; i < ListOfHotels.size(); i++) { //iteruje po wszystkich obiektach w vektorze
 			if ((!ListOfHotels[i].GetCity().compare(Place))) {  //porównuje misto z wpisanym miastem
 				ListOfHotels[i].ToString();		//wywo³uje funkcje wypisuj¹c¹
