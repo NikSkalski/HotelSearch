@@ -9,17 +9,27 @@
 #include <fstream>
 using namespace std;
 
-void saveHotelList(map<string, vector<Hotel>>& list, string name) {
+void saveHotelList(multimap<string, Hotel> list, string name) {
 
 	ofstream stream;
 	stream.open(name, ios::out | ios::trunc); //otwiera plik w trybie do pisania, jak cos w nim wczesniej bylo to usuwa
-	assert(stream.is_open()); //wywo³uje abort() jak stream.is_open jest false i wyjebuje program
-	for (map<string, vector<Hotel>>::iterator it = list.begin(); it != list.end(); ++it) { //nie wiem jak ten iterator dzia³a, znalazlem na Stack Overflow xD
-		stream << it->first << ":\n";
-		for (int i = 0; i < it->second.size(); ++i) { //samo wpisywanie do pliku dziala jak pisanie do np. cout wiec luzik
-			stream << "\t" << it->second[i].getName() << "\t" << it->second[i].Cost(1) << "\n";
+	if (!stream.is_open()) {
+		cerr << "Could not open file" << endl;
+		exit(1);
+	} 
+	auto ran = list.equal_range(list.begin()->first);
+	/*the outer loop iterates over each key, while the inner loop operates over all values corresponding 
+	to a given key*/
+	for (auto iterator = ran.first ;iterator != list.end();) {
+		stream << iterator->first << ":\n";
+		for (auto i = iterator; i != ran.second; ++i ) {
+			stream << "\t" << i->second.getName() << "\t" << i->second.Cost(1) << "\n";
 		}
-		stream << "END " << it->first << "\n";
+		stream << "END " << iterator->first << "\n";
+		if (ran.second == list.end()) break; //awkward fix, if this check is not done the function will crash the program by dereferencing a null pointer
+												//after reaching the end of the list
+		ran = list.equal_range(ran.second->first);
+		iterator = ran.first;
 	}
 	stream.close();
 };
@@ -28,7 +38,7 @@ multimap<string, Hotel> loadHotelList(string name) {
 	ifstream stream;
 	stream.open(name);
 	if (!stream.is_open()) {
-		cerr << "COuld not open file" << endl;
+		cerr << "Could not open file" << endl;
 		exit(1);
 	}
 	string line, hotelName, price, key;
