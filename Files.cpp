@@ -64,10 +64,10 @@ multimap<string, Hotel> loadHotelList(string name) {
 }
 
 
-void PrintEnd(Hotel& TheOne, Klient &klient, std::string name) {
+void saveBooking(Hotel& TheOne, Klient &klient, std::string city,std::string name) {
 	ofstream stream;
-	stream.open(name, ios::out | ios::trunc);
+	stream.open(name, ios::out | ios::app);
 	assert(stream.is_open());
-	stream << "\t" << TheOne.getName() << "\t" << TheOne.GetCity() << "\t" << klient.GetName() << "  " << klient.GetSurename() << endl;
+	stream << "\t" << TheOne.getName() << "\t" << city << "\t" << klient.GetName() << "  " << klient.GetSurename() << endl;
 	stream.close();
 }

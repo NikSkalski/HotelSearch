@@ -1,19 +1,17 @@
 #pragma once
 #include "Klient.h"
 #include <iostream>
+#include <map>
 using namespace std;
 class Hotel
 {
 public:
 	Hotel(string HotelName,  unsigned int price) {
 		this->HotelName = HotelName;
-		//this->City = City;
 		this->price = price;
 	}
 	~Hotel() {};
 	Hotel() {};
-	//vector <Hotel> MatchedHotels;
-	int k;
 
 	int Cost(int days) {
 		return days * price;
@@ -21,32 +19,18 @@ public:
 	string getName() {
 		return HotelName;
 	}
-	string GetCity() {
-		return City;
-	}
 	void ToString() {
-		cout << "Name: " << HotelName << " City: " << City << endl;
+		cout << "Name: " << HotelName << endl;
 	}
-	Hotel HotelFinder(vector <Hotel> ListOfHotels, string Place) {
-		vector <Hotel> MatchedHotels;
-		for (int i = 0; i < ListOfHotels.size(); i++) { //iteruje po wszystkich obiektach w vektorze
-			if ((!ListOfHotels[i].GetCity().compare(Place))) {  //porównuje misto z wpisanym miastem
-				ListOfHotels[i].ToString();		//wywo³uje funkcje wypisuj¹c¹
-				MatchedHotels.push_back(ListOfHotels[i]);
-			}
-		}
-		cout << "Wpisz numer hotelu,ktory wybrales" << endl;
-		cin >> k;
-		return MatchedHotels[k - 1];
-	}
+	
 	
 
 private:
-	string HotelName, City; //City nie usunalem ale bedzie zbêdne w sumie
+	string HotelName;
 	unsigned int price;
 
 };
 
-
+Hotel HotelFinder(multimap<string, Hotel>& ListOfHotels, string Place);
 
 
