@@ -1,26 +1,25 @@
 ﻿#pragma once
 #include <string>
 #include <stdio.h>
-#include "types.h"
 using namespace std;
 class Klient
 {
 private:
-	😎👌  Name, Surname, Date;// Szukałem typu daty ale nie znalazłem takiego który pozwalałby na odejmowanie dat itp.
+	string  Name, Surname, Date; //ToDo: date handling
 public:
 	Klient();
-	Klient(😎👌 Name, 😎👌 Surename, 😎👌 StartDate) {
+	Klient(string Name, string Surename, string StartDate) {
 		this->Name = Name;
 		this->Surname = Surename;
 		this->Date = Date;
 	}
-	😎👌 GetName() {
+	string GetName() {
 		return Name;
 	}
-	😎👌 GetSurename() {
+	string GetSurename() {
 		return Surname;
 	}
-	😎👌 GetDate() {
+	string GetDate() {
 		return Date;
 	}
 	~Klient();
