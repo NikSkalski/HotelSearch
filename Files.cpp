@@ -12,7 +12,7 @@ using namespace std;
 void saveHotelList(multimap<string, Hotel> list, string name) {
 
 	ofstream stream;
-	stream.open(name, ios::out | ios::trunc); //otwiera plik w trybie do pisania, jak cos w nim wczesniej bylo to usuwa
+	stream.open(name, ios::out | ios::trunc); //open file in write mode, remove contents if present
 	if (!stream.is_open()) {
 		cerr << "Could not open file" << endl;
 		exit(1);
