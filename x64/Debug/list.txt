@@ -1,0 +1,24 @@
+New York:
+	WaterGates	220
+END New York
+Paris:
+	WaterGates	220
+	Hilton	250
+END Paris
+Cairo:
+	Four Seasons	100
+	Hyatt	200
+	WaterGates	220
+	Hilton	250
+END Cairo
+Philadelphia:
+	Four Seasons	100
+	Hyatt	200
+	WaterGates	220
+	Hilton	250
+END Philadelphia
+Warsaw:
+	Ibis	100
+	Hilton	200
+END Warsaw
+

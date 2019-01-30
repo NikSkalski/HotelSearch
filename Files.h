@@ -3,7 +3,7 @@
 #include <string>
 #include <map>
 #include <fstream>
-#include <assert.h>
+
 using namespace std;
 void saveHotelList(multimap<string, Hotel>, std::string name);
 multimap<string, Hotel> loadHotelList( std::string name);

@@ -19,6 +19,7 @@ public:
 	string getName() {
 		return HotelName;
 	}
+
 	void ToString() {
 		cout << "Name: " << HotelName << endl;
 	}

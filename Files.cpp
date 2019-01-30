@@ -1,11 +1,9 @@
 #include "Files.h"
 #include "pch.h"
-#include <assert.h>
-#include <map>
-#include <string>
-#include <vector>
+
+
 #include "Hotel.h"
-#include <iostream>
+#include <assert.h>
 #include <fstream>
 using namespace std;
 
@@ -37,10 +35,10 @@ void saveHotelList(multimap<string, Hotel> list, string name) {
 multimap<string, Hotel> loadHotelList(string name) {
 	ifstream stream;
 	stream.open(name);
-	if (!stream.is_open()) {
+	/*if (!stream.is_open()) {
 		cerr << "Could not open file" << endl;
 		exit(1);
-	}
+	}*/
 	string line, hotelName, price, key;
 	multimap<string, Hotel> list;
 	while (!stream.eof()) {
